@@ -4,14 +4,10 @@ connect = sqlite3.connect('users.db')
 
 c = connect.cursor()
 
-passw = 'SELECT * FROM users WHERE Password = ?'
-user = 'SELECT * FROM users WHERE User = ? and Password = ?'
+passw = 'SELECT * FROM users'
 
-def Ler_Dados(wordUsed):
-    for row in c.execute(passw, (wordUsed,)):
+def Ler_Dados():
+    for row in c.execute(passw):
         print row
 
-    for row in c.execute(user, ('root', 'Senai132')):
-        print row
-
-Ler_Dados('')
+Ler_Dados()
